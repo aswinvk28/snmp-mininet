@@ -34,7 +34,7 @@ def mininet_snmp_load(host, community, objectID):
 nodes = mininet_start_nodes(net)
 if(nodes):
     for node in nodes:
-        print PyEval_GetFuncName(node)
+        print ""
 
 
 
