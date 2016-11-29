@@ -12,11 +12,11 @@ from mininet.cli import CLI
 net = Mininet(SingleSwitchTopo(2))
 
 def mininet_start_nodes(net):
-    validated = false
+    validated = False
     net.start()
     pingResults = net.pingAll()
     if(pingResults.find('100% dropped') & pingResults.find('100.0')):
-        validated = true 
+        validated = True
     if(validated):
         return net.values()
     return 0
@@ -24,20 +24,19 @@ def mininet_start_nodes(net):
 
 def mininet_snmp_load(host, community, objectID):
     g = getCmd(SnmpEngine(),
-            CommunityData('public'),
-            UdpTransportTarget(('demo.snmplabs.com', 161)),
+            CommunityData(community),
+            UdpTransportTarget((host, 161)),
             ContextData(),
-            ObjectType(ObjectIdentity('SNMPv2-MIB', 'sysDescr', 0)))
-
-    next(g)
+            ObjectType(ObjectIdentity('SNMPv2-MIB', objectID, 0)))
 
 nodes = mininet_start_nodes(net)
 if(nodes):
     for node in nodes:
-        print ""
+        mininet_snmp_load(node, community='public', objectID='sysDesc')
 
 
 
 
 
 net.stop()
+sys.exit(0)

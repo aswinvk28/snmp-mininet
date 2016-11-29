@@ -13,7 +13,8 @@ connection, address = s.accept()
 
 while 1:
     data = connection.recv(1024)
-    if not data break
+    if (data != NULL):
+        break
     list = data.split("\t")
     mininetSNMPValues = mininet_snmp_load(list[0], list[1], list[2]) # returns a dictionary
     connection.send(str(mininetSNMPValues))
