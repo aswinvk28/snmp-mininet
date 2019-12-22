@@ -1,8 +1,8 @@
 
 # MININET TOPOLOGY SETUP
 
-topology.py
-snmpload.py
+> topology.py
+> snmpload.py
 
 # Create a default network available in mininet
 sudo mn
