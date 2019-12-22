@@ -2,6 +2,7 @@
 # MININET TOPOLOGY SETUP
 
 > topology.py
+
 > snmpload.py
 
 # Create a default network available in mininet
@@ -24,7 +25,9 @@ controller -> c0
 These are the command to check if the interfaces are correct (linux commands).
 
 > h1 ifconfig
+
 > h2 ifconfig
+
 > s1 ifconfig
 
 > pingall ## will send a ping request on all the hosts
